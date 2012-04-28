@@ -21,10 +21,10 @@ def syslog(message,host,port):
    syslog.close()
 
 parser = OptionParser(usage="%prog [-f] [-s]", version="%prog 0.01")
-parser.add_option("-f", action="store",dest="File Name", help="Name of the file you would like to parse")
-parser.add_option("-s", action="store",dest="Host", help="IP address or FQDN of syslog host to send CEF Messages to")
+parser.add_option("-f", action="store",dest="fname", help="Name of the file you would like to parse")
+parser.add_option("-s", action="store",dest="host", help="IP address or FQDN of syslog host to send CEF Messages to")
 parser.add_option("-p", action="store", type="int",dest="Port", default=514,help="PORT to send syslog messages to. Usually 514 please check your Connector configuration [DEFAULT: 514]")
-parser.add_option("-t", action="store",dest="Message Type", default="Domain",help="Domain or IP this will help generate the CEF Message that is sent. If Domain the CEF Name will be CIF Malicious Domain. If IP the CEF Name will be CIF Malicious IP")
+parser.add_option("-t", action="store",dest="mtype", default="Domain",help="Domain or IP this will help generate the CEF Message that is sent. If Domain the CEF Name will be CIF Malicious Domain. If IP the CEF Name will be CIF Malicious IP")
 (options, args) = parser.parse_args()
 if options.fname == None :
    parser.error("You must specify a filename ")
