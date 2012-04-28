@@ -18,21 +18,21 @@ Things you must know for running the CIF CSV parser:
    * Syslog port: Typically 514 but it could be something else
    * Message Type: What is the context for the csv: Domain, IP, Scanner
 
-The CIF CSV parser currently sends these CIF related fields in the CEF Message:
-   * shost (Domain name or IP Address)
-   * cs1 (CIF Source i.e. spamhaus, emergingthreats
-   * cs2 (Confidence level)
-   * cs3 (Description)
-
-
 To run cifcsv.py you need to pass the following arguments:
    * -f filename
    * -s syslog host
    * -p port
    * -t message type
+
 {{{
 ./cifcsv.py -f dom_malware.csv -s 192.168.100.154 -p 514 -t Domain
 }}}
+
+The CIF CSV parser currently sends these CIF related fields in the CEF Message:
+   * shost (Domain name or IP Address)
+   * cs1 (CIF Source i.e. spamhaus, emergingthreats
+   * cs2 (Confidence level)
+   * cs3 (Description)
 
 This will then parse the dom_malware.csv file and generate a syslog message and send it to the host 192.168.100.154 on port 514 with the CEF Name field of CIF Malicious Domain:
 {{{
